@@ -45,7 +45,7 @@ export const resolveDisputeSchema = z.object({
   resolution: z.enum(
     ['FAVOR_ALUNO', 'FAVOR_COLABORADOR', 'ACORDO', 'PARCIAL'],
     {
-      errorMap: () => ({ message: 'Selecione um tipo de resolução válido' }),
+      error: 'Selecione um tipo de resolução válido',
     }
   ),
   admin_notes: z
@@ -98,7 +98,7 @@ export const updateDisputeStatusSchema = z.object({
   new_status: z.enum(
     ['ABERTA', 'EM_ANALISE', 'AGUARDANDO_RESPOSTA', 'RESOLVIDA', 'CANCELADA'],
     {
-      errorMap: () => ({ message: 'Selecione um status válido' }),
+      error: 'Selecione um status válido',
     }
   ),
 });

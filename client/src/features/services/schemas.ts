@@ -12,7 +12,7 @@ export const createServiceSchema = z
   .object({
     name: z.string().min(3, 'Nome deve ter pelo menos 3 caracteres'),
     area: z.enum(['DIREITO', 'PEDAGOGIA', 'CONTABILIDADE', 'ENFERMAGEM', 'OUTROS'], {
-      errorMap: () => ({ message: 'Selecione uma area' }),
+      error: 'Selecione uma area',
     }),
     work_type: z.string().optional(),
     total_value: z.coerce.number().positive('Valor deve ser positivo'),
