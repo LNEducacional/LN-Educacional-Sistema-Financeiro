@@ -24,7 +24,6 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}/sistema-financeiro
 
 jobs:
   resolve-env:
@@ -35,12 +34,16 @@ jobs:
       vite_api_url: ${{ steps.env.outputs.vite_api_url }}
       deploy_path: ${{ steps.env.outputs.deploy_path }}
       env_tag: ${{ steps.env.outputs.env_tag }}
+      image_prefix: ${{ steps.env.outputs.image_prefix }}
     steps:
       - id: env
         run: |
           set -euo pipefail
           ENV="${{ github.event.inputs.environment || 'test' }}"
           echo "environment=$ENV" >> "$GITHUB_OUTPUT"
+
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          echo "image_prefix=ghcr.io/${OWNER}/sistema-financeiro" >> "$GITHUB_OUTPUT"
 
           if [ "$ENV" = "production" ]; then
             echo "vite_api_url=" >> "$GITHUB_OUTPUT"
@@ -75,9 +78,9 @@ jobs:
           file: Dockerfile.api
           push: true
           tags: |
-            ${{ env.IMAGE_PREFIX }}-api:${{ github.sha }}
-            ${{ env.IMAGE_PREFIX }}-api:${{ needs.resolve-env.outputs.env_tag }}
-            ${{ env.IMAGE_PREFIX }}-api:latest
+            ${{ needs.resolve-env.outputs.image_prefix }}-api:${{ github.sha }}
+            ${{ needs.resolve-env.outputs.image_prefix }}-api:${{ needs.resolve-env.outputs.env_tag }}
+            ${{ needs.resolve-env.outputs.image_prefix }}-api:latest
           cache-from: type=gha,scope=fin-api
           cache-to: type=gha,mode=max,scope=fin-api
 
@@ -88,9 +91,9 @@ jobs:
           file: Dockerfile.client
           push: true
           tags: |
-            ${{ env.IMAGE_PREFIX }}-client:${{ github.sha }}
-            ${{ env.IMAGE_PREFIX }}-client:${{ needs.resolve-env.outputs.env_tag }}
-            ${{ env.IMAGE_PREFIX }}-client:latest
+            ${{ needs.resolve-env.outputs.image_prefix }}-client:${{ github.sha }}
+            ${{ needs.resolve-env.outputs.image_prefix }}-client:${{ needs.resolve-env.outputs.env_tag }}
+            ${{ needs.resolve-env.outputs.image_prefix }}-client:latest
           build-args: |
             VITE_API_URL=${{ needs.resolve-env.outputs.vite_api_url }}
           cache-from: type=gha,scope=fin-client
@@ -99,7 +102,7 @@ jobs:
       - name: Trivy scan - API
         uses: aquasecurity/trivy-action@0.28.0
         with:
-          image-ref: ${{ env.IMAGE_PREFIX }}-api:${{ github.sha }}
+          image-ref: ${{ needs.resolve-env.outputs.image_prefix }}-api:${{ github.sha }}
           format: table
           exit-code: 1
           severity: CRITICAL,HIGH
@@ -108,7 +111,7 @@ jobs:
       - name: Trivy scan - client
         uses: aquasecurity/trivy-action@0.28.0
         with:
-          image-ref: ${{ env.IMAGE_PREFIX }}-client:${{ github.sha }}
+          image-ref: ${{ needs.resolve-env.outputs.image_prefix }}-client:${{ github.sha }}
           format: table
           exit-code: 1
           severity: CRITICAL,HIGH
@@ -120,12 +123,12 @@ jobs:
       - name: Sign API image
         run: |
           cosign sign --yes \
-            ${{ env.IMAGE_PREFIX }}-api:${{ github.sha }}
+            ${{ needs.resolve-env.outputs.image_prefix }}-api:${{ github.sha }}
 
       - name: Sign client image
         run: |
           cosign sign --yes \
-            ${{ env.IMAGE_PREFIX }}-client:${{ github.sha }}
+            ${{ needs.resolve-env.outputs.image_prefix }}-client:${{ github.sha }}
 
   deploy:
     name: Deploy to ${{ needs.resolve-env.outputs.environment }}
