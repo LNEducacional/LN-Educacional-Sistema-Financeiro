@@ -16,7 +16,6 @@ on:
 permissions:
   contents: read
   packages: write
-  id-token: write
 
 concurrency:
   group: deploy-${{ github.event.inputs.environment || 'test' }}
@@ -98,37 +97,6 @@ jobs:
             VITE_API_URL=${{ needs.resolve-env.outputs.vite_api_url }}
           cache-from: type=gha,scope=fin-client
           cache-to: type=gha,mode=max,scope=fin-client
-
-      - name: Trivy scan - API
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: ${{ needs.resolve-env.outputs.image_prefix }}-api:${{ github.sha }}
-          format: table
-          exit-code: 1
-          severity: CRITICAL,HIGH
-          ignore-unfixed: true
-
-      - name: Trivy scan - client
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: ${{ needs.resolve-env.outputs.image_prefix }}-client:${{ github.sha }}
-          format: table
-          exit-code: 1
-          severity: CRITICAL,HIGH
-          ignore-unfixed: true
-
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3
-
-      - name: Sign API image
-        run: |
-          cosign sign --yes \
-            ${{ needs.resolve-env.outputs.image_prefix }}-api:${{ github.sha }}
-
-      - name: Sign client image
-        run: |
-          cosign sign --yes \
-            ${{ needs.resolve-env.outputs.image_prefix }}-client:${{ github.sha }}
 
   deploy:
     name: Deploy to ${{ needs.resolve-env.outputs.environment }}

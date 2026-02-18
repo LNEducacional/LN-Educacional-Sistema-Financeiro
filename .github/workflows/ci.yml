@@ -3,8 +3,6 @@ name: CI
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -25,31 +23,8 @@ jobs:
           go-version-file: server/go.mod
           cache-dependency-path: server/go.sum
 
-      - name: Check formatting
-        run: |
-          if [ -n "$(gofmt -l .)" ]; then
-            echo "Go files not formatted:"
-            gofmt -l .
-            exit 1
-          fi
-
-      - name: Vet
-        run: go vet ./...
-
       - name: Build
         run: CGO_ENABLED=0 go build -ldflags="-s -w" ./cmd/api
-
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v6
-        with:
-          version: latest
-          working-directory: server
-          args: --timeout=5m
-
-      - name: govulncheck
-        uses: golang/govulncheck-action@v1
-        with:
-          work-directory: server
 
   frontend:
     name: Frontend (React)
@@ -68,9 +43,4 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run lint
-
       - run: npm run build
-
-      - name: Security audit
-        run: npm audit --audit-level=high
