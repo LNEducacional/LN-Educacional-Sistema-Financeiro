@@ -136,12 +136,13 @@ jobs:
             echo "Aplicando migrations..."
             PG_USER=$(grep '^POSTGRES_USER=' .env | cut -d= -f2)
             PG_DB=$(grep '^POSTGRES_DB=' .env | cut -d= -f2)
+            rm -rf /tmp/fin-migrations 2>/dev/null || true
             docker cp fin-prod-api:/migrations /tmp/fin-migrations 2>/dev/null || true
             if [ -d "/tmp/fin-migrations" ]; then
               for f in $(ls /tmp/fin-migrations/*.up.sql 2>/dev/null | sort); do
                 docker exec -i fin-prod-postgres psql -U "$PG_USER" -d "$PG_DB" < "$f" 2>&1 || true
               done
-              rm -rf /tmp/fin-migrations
+              rm -rf /tmp/fin-migrations 2>/dev/null || true
               echo "Migrations aplicadas"
             fi
 
