@@ -132,11 +132,24 @@ jobs:
             docker compose pull
             docker compose up -d --remove-orphans
 
+            # Rodar migrations
+            echo "Aplicando migrations..."
+            PG_USER=$(grep '^POSTGRES_USER=' .env | cut -d= -f2)
+            PG_DB=$(grep '^POSTGRES_DB=' .env | cut -d= -f2)
+            docker cp fin-prod-api:/migrations /tmp/fin-migrations 2>/dev/null || true
+            if [ -d "/tmp/fin-migrations" ]; then
+              for f in $(ls /tmp/fin-migrations/*.up.sql 2>/dev/null | sort); do
+                docker exec -i fin-prod-postgres psql -U "$PG_USER" -d "$PG_DB" < "$f" 2>&1 || true
+              done
+              rm -rf /tmp/fin-migrations
+              echo "Migrations aplicadas"
+            fi
+
             # Health check (aguardar API responder)
             echo "Aguardando health check..."
             HEALTHY=false
             for i in $(seq 1 30); do
-              if docker compose exec -T api wget -qO- http://localhost:8080/health 2>/dev/null; then
+              if docker compose exec -T postgres wget -qO- http://fin-prod-api:8080/health 2>/dev/null; then
                 echo ""
                 echo "Deploy concluido com sucesso!"
                 HEALTHY=true

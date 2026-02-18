@@ -1,3 +1,5 @@
+name: fin-prod
+
 services:
   # ============================================
   # PostgreSQL - Banco de dados principal
