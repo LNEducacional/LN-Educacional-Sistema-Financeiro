@@ -23,7 +23,7 @@ const formatDate = (dateString: string): string => {
 };
 
 export const DeliveryCard = ({ delivery, isLatest = false }: DeliveryCardProps) => {
-  const downloadUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/${delivery.file_path}`;
+  const downloadUrl = `${import.meta.env.VITE_API_URL || ''}/${delivery.file_path}`;
 
   return (
     <div

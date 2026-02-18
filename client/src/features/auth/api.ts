@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { LoginSchema, TokenPairSchema } from './schemas';
 
 const authApi = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: import.meta.env.VITE_API_URL || '',
 });
 
 export const loginUser = async (data: LoginSchema): Promise<TokenPairSchema> => {
