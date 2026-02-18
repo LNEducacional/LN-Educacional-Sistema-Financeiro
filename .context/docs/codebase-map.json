@@ -1,0 +1,1457 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-01-29T04:11:07.050Z",
+  "stack": {
+    "primaryLanguage": "typescript",
+    "languages": [
+      "typescript",
+      "javascript",
+      "go"
+    ],
+    "frameworks": [],
+    "buildTools": [
+      "docker-compose"
+    ],
+    "testFrameworks": [],
+    "packageManager": null,
+    "isMonorepo": false,
+    "hasDocker": true,
+    "hasCI": false
+  },
+  "structure": {
+    "totalFiles": 12317,
+    "topDirectories": [
+      {
+        "name": "CLAUDE.md",
+        "fileCount": 1
+      },
+      {
+        "name": "client",
+        "fileCount": 12200
+      },
+      {
+        "name": "deploy.sh",
+        "fileCount": 1
+      },
+      {
+        "name": "docker-compose.yml",
+        "fileCount": 1
+      },
+      {
+        "name": "Makefile",
+        "fileCount": 1
+      },
+      {
+        "name": "OLD.md",
+        "fileCount": 1
+      },
+      {
+        "name": "requisitos.md",
+        "fileCount": 1
+      },
+      {
+        "name": "server",
+        "fileCount": 109
+      },
+      {
+        "name": "todo.md",
+        "fileCount": 1
+      },
+      {
+        "name": "z.txt",
+        "fileCount": 1
+      }
+    ],
+    "languageDistribution": [
+      {
+        "extension": ".js",
+        "count": 5466
+      },
+      {
+        "extension": ".map",
+        "count": 2810
+      },
+      {
+        "extension": ".ts",
+        "count": 2023
+      },
+      {
+        "extension": ".json",
+        "count": 375
+      },
+      {
+        "extension": ".md",
+        "count": 323
+      },
+      {
+        "extension": ".cjs",
+        "count": 240
+      },
+      {
+        "extension": ".cts",
+        "count": 234
+      },
+      {
+        "extension": ".mjs",
+        "count": 140
+      },
+      {
+        "extension": ".tsx",
+        "count": 127
+      },
+      {
+        "extension": ".mts",
+        "count": 97
+      }
+    ]
+  },
+  "architecture": {
+    "layers": [
+      {
+        "name": "Utils",
+        "description": "Shared utilities and helpers",
+        "directories": [
+          "client/src/lib",
+          "client/src/lib/hooks",
+          "client/src/components/ui"
+        ],
+        "symbolCount": 10,
+        "dependsOn": [
+          "Components"
+        ]
+      },
+      {
+        "name": "Controllers",
+        "description": "Request handling and routing",
+        "directories": [
+          "client/src/features/student",
+          "client/src/features/ranking",
+          "client/src/features/orders",
+          "client/src/features/production",
+          "client/src/features/disputes",
+          "client/src/features/collaborator",
+          "client/src/features/auth",
+          "client/src/features/admin",
+          "client/src/app"
+        ],
+        "symbolCount": 3,
+        "dependsOn": [
+          "Components"
+        ]
+      },
+      {
+        "name": "Services",
+        "description": "Business logic and orchestration",
+        "directories": [
+          "client/src/features/services",
+          "client/src/features/services/components"
+        ],
+        "symbolCount": 13,
+        "dependsOn": []
+      },
+      {
+        "name": "Models",
+        "description": "Data structures and domain objects",
+        "directories": [
+          "client/src/features/disputes",
+          "client/src/features/auth"
+        ],
+        "symbolCount": 8,
+        "dependsOn": []
+      },
+      {
+        "name": "Components",
+        "description": "UI components and views",
+        "directories": [
+          "client/src/components/ui",
+          "client/src/components/layout",
+          "client/src/features/collaborator/components",
+          "client/src/features/student",
+          "client/src/features/ranking",
+          "client/src/features/disputes",
+          "client/src/features/collaborator",
+          "client/src/features/admin",
+          "client/src/features/student/components",
+          "client/src/features/ranking/components",
+          "client/src/features/production/components",
+          "client/src/features/orders/components",
+          "client/src/features/disputes/components",
+          "client/src/features/auth/components",
+          "client/src/features/admin/components"
+        ],
+        "symbolCount": 83,
+        "dependsOn": [
+          "Controllers"
+        ]
+      }
+    ],
+    "patterns": [],
+    "entryPoints": [
+      "client/src/lib/index.ts",
+      "client/src/features/student/index.ts",
+      "client/src/features/services/index.ts",
+      "client/src/features/ranking/index.ts",
+      "client/src/features/orders/index.ts",
+      "client/src/features/notifications/index.ts",
+      "client/src/features/production/index.ts",
+      "client/src/features/disputes/index.ts",
+      "client/src/features/collaborator/index.ts",
+      "client/src/features/auth/index.ts",
+      "client/src/features/admin/index.ts",
+      "client/src/components/ui/index.ts",
+      "client/src/components/layout/index.ts",
+      "client/src/features/collaborator/components/index.ts",
+      "client/src/main.tsx"
+    ]
+  },
+  "symbols": {
+    "classes": [],
+    "interfaces": [
+      {
+        "name": "ActiveJob",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 137,
+        "exported": true
+      },
+      {
+        "name": "ActiveJobsResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 150,
+        "exported": true
+      },
+      {
+        "name": "AddCommentRequest",
+        "kind": "interface",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 65,
+        "exported": true
+      },
+      {
+        "name": "AlertItem",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 158,
+        "exported": true
+      },
+      {
+        "name": "AlertsResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 166,
+        "exported": true
+      },
+      {
+        "name": "AsaasSettingsResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 350,
+        "exported": true
+      },
+      {
+        "name": "AssignCollaboratorRequest",
+        "kind": "interface",
+        "file": "client/src/features/production/types.ts",
+        "line": 70,
+        "exported": true
+      },
+      {
+        "name": "AuthState",
+        "kind": "interface",
+        "file": "client/src/features/auth/types.ts",
+        "line": 20,
+        "exported": true
+      },
+      {
+        "name": "BadgeProps",
+        "kind": "interface",
+        "file": "client/src/components/ui/Badge.tsx",
+        "line": 14,
+        "exported": true
+      },
+      {
+        "name": "ChangeStatusRequest",
+        "kind": "interface",
+        "file": "client/src/features/orders/types.ts",
+        "line": 26,
+        "exported": true
+      },
+      {
+        "name": "ChangeStatusRequest",
+        "kind": "interface",
+        "file": "client/src/features/production/types.ts",
+        "line": 65,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorDelinquent",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 322,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorDelinquentsResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 333,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorDetail",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 76,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorEarningPeriod",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 228,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorForSelection",
+        "kind": "interface",
+        "file": "client/src/features/student/types.ts",
+        "line": 82,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorInfo",
+        "kind": "interface",
+        "file": "client/src/features/student/types.ts",
+        "line": 58,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorJob",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 56,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorOrder",
+        "kind": "interface",
+        "file": "client/src/features/collaborator/types.ts",
+        "line": 16,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorRanking",
+        "kind": "interface",
+        "file": "client/src/features/production/types.ts",
+        "line": 35,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorRankingPositions",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 312,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorRevision",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 68,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorRevisionsResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 243,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorsListResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 235,
+        "exported": true
+      },
+      {
+        "name": "CollaboratorSummary",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 39,
+        "exported": true
+      },
+      {
+        "name": "ComplaintItem",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 88,
+        "exported": true
+      },
+      {
+        "name": "ComplaintsListResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 279,
+        "exported": true
+      },
+      {
+        "name": "ComplaintStats",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 270,
+        "exported": true
+      },
+      {
+        "name": "ComplaintWithSplit",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 251,
+        "exported": true
+      },
+      {
+        "name": "CreateCollaboratorRequest",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 219,
+        "exported": true
+      },
+      {
+        "name": "CreateDisputeRequest",
+        "kind": "interface",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 59,
+        "exported": true
+      },
+      {
+        "name": "CreateJobRequest",
+        "kind": "interface",
+        "file": "client/src/features/production/types.ts",
+        "line": 56,
+        "exported": true
+      },
+      {
+        "name": "CreateOrderRequest",
+        "kind": "interface",
+        "file": "client/src/features/student/types.ts",
+        "line": 89,
+        "exported": true
+      },
+      {
+        "name": "CreateServiceInput",
+        "kind": "interface",
+        "file": "client/src/features/services/types.ts",
+        "line": 16,
+        "exported": true
+      },
+      {
+        "name": "DashboardResponse",
+        "kind": "interface",
+        "file": "client/src/features/collaborator/types.ts",
+        "line": 31,
+        "exported": true
+      },
+      {
+        "name": "DecodedToken",
+        "kind": "interface",
+        "file": "client/src/features/auth/types.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "DelinquencyCheckResult",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 32,
+        "exported": true
+      },
+      {
+        "name": "DelinquencyConfig",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 28,
+        "exported": true
+      },
+      {
+        "name": "DelinquencyHistoryEntry",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 383,
+        "exported": true
+      },
+      {
+        "name": "DelinquencyHistoryResponse",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 397,
+        "exported": true
+      },
+      {
+        "name": "DelinquencyStatus",
+        "kind": "interface",
+        "file": "client/src/features/production/types.ts",
+        "line": 51,
+        "exported": true
+      },
+      {
+        "name": "DelinquentUser",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 17,
+        "exported": true
+      },
+      {
+        "name": "DelinquentUserWithHistory",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 407,
+        "exported": true
+      },
+      {
+        "name": "Delivery",
+        "kind": "interface",
+        "file": "client/src/features/student/types.ts",
+        "line": 20,
+        "exported": true
+      },
+      {
+        "name": "Delivery",
+        "kind": "interface",
+        "file": "client/src/features/collaborator/types.ts",
+        "line": 36,
+        "exported": true
+      },
+      {
+        "name": "Dispute",
+        "kind": "interface",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 14,
+        "exported": true
+      },
+      {
+        "name": "DisputeComment",
+        "kind": "interface",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 30,
+        "exported": true
+      },
+      {
+        "name": "DisputeEvidence",
+        "kind": "interface",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 40,
+        "exported": true
+      },
+      {
+        "name": "DisputeWithDetails",
+        "kind": "interface",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 53,
+        "exported": true
+      },
+      {
+        "name": "FinancialKPIs",
+        "kind": "interface",
+        "file": "client/src/features/admin/types.ts",
+        "line": 1,
+        "exported": true
+      }
+    ],
+    "functions": [
+      {
+        "name": "AdminDashboard",
+        "kind": "function",
+        "file": "client/src/features/production/AdminDashboard.tsx",
+        "line": 39,
+        "exported": true
+      },
+      {
+        "name": "AppProviders",
+        "kind": "function",
+        "file": "client/src/app/providers.tsx",
+        "line": 7,
+        "exported": true
+      },
+      {
+        "name": "Badge",
+        "kind": "function",
+        "file": "client/src/components/ui/Badge.tsx",
+        "line": 33,
+        "exported": true
+      },
+      {
+        "name": "ChangeStatusModal",
+        "kind": "function",
+        "file": "client/src/features/orders/components/ChangeStatusModal.tsx",
+        "line": 14,
+        "exported": true
+      },
+      {
+        "name": "cn",
+        "kind": "function",
+        "file": "client/src/lib/utils.ts",
+        "line": 4,
+        "exported": true
+      },
+      {
+        "name": "CriteriaTabs",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/CriteriaTabs.tsx",
+        "line": 21,
+        "exported": true
+      },
+      {
+        "name": "DelinquencyAlert",
+        "kind": "function",
+        "file": "client/src/features/production/components/DelinquencyAlert.tsx",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "DisputeTimeline",
+        "kind": "function",
+        "file": "client/src/features/disputes/components/DisputeTimeline.tsx",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "NotificationProvider",
+        "kind": "function",
+        "file": "client/src/features/notifications/NotificationContext.tsx",
+        "line": 21,
+        "exported": true
+      },
+      {
+        "name": "RankingTable",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/RankingTable.tsx",
+        "line": 26,
+        "exported": true
+      },
+      {
+        "name": "StatusBadge",
+        "kind": "function",
+        "file": "client/src/features/production/components/StatusBadge.tsx",
+        "line": 18,
+        "exported": true
+      },
+      {
+        "name": "StatusTimeline",
+        "kind": "function",
+        "file": "client/src/features/orders/components/StatusTimeline.tsx",
+        "line": 10,
+        "exported": true
+      },
+      {
+        "name": "useNotifications",
+        "kind": "function",
+        "file": "client/src/features/notifications/NotificationContext.tsx",
+        "line": 127,
+        "exported": true
+      },
+      {
+        "name": "useSidebarState",
+        "kind": "function",
+        "file": "client/src/lib/hooks/useSidebarState.ts",
+        "line": 17,
+        "exported": true
+      },
+      {
+        "name": "useSSE",
+        "kind": "function",
+        "file": "client/src/lib/hooks/useSSE.ts",
+        "line": 24,
+        "exported": true
+      },
+      {
+        "name": "AwardIcon",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/Podium.tsx",
+        "line": 66,
+        "exported": false
+      },
+      {
+        "name": "createBadgePropsGetter",
+        "kind": "function",
+        "file": "client/src/components/ui/badge-helpers.ts",
+        "line": 24,
+        "exported": false,
+        "description": "Função factory genérica para criar badge props getters"
+      },
+      {
+        "name": "formatCurrency",
+        "kind": "function",
+        "file": "client/src/features/production/components/JobsTable.tsx",
+        "line": 22,
+        "exported": false
+      },
+      {
+        "name": "formatCurrency",
+        "kind": "function",
+        "file": "client/src/features/production/components/JobDetailModal.tsx",
+        "line": 15,
+        "exported": false
+      },
+      {
+        "name": "formatCurrency",
+        "kind": "function",
+        "file": "client/src/features/production/components/FinancialWidget.tsx",
+        "line": 10,
+        "exported": false
+      },
+      {
+        "name": "formatCurrency",
+        "kind": "function",
+        "file": "client/src/features/production/components/ChangeStatusModal.tsx",
+        "line": 13,
+        "exported": false
+      },
+      {
+        "name": "formatDate",
+        "kind": "function",
+        "file": "client/src/features/production/components/JobsTable.tsx",
+        "line": 29,
+        "exported": false
+      },
+      {
+        "name": "formatDateTime",
+        "kind": "function",
+        "file": "client/src/features/production/components/JobDetailModal.tsx",
+        "line": 11,
+        "exported": false
+      },
+      {
+        "name": "formatValue",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/UserPositionBar.tsx",
+        "line": 10,
+        "exported": false
+      },
+      {
+        "name": "formatValue",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/RankingTable.tsx",
+        "line": 9,
+        "exported": false
+      },
+      {
+        "name": "formatValue",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/Podium.tsx",
+        "line": 76,
+        "exported": false
+      },
+      {
+        "name": "getInitials",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/Podium.tsx",
+        "line": 93,
+        "exported": false
+      },
+      {
+        "name": "getInitialState",
+        "kind": "function",
+        "file": "client/src/lib/hooks/useSidebarState.ts",
+        "line": 7,
+        "exported": false
+      },
+      {
+        "name": "handleClickOutside",
+        "kind": "function",
+        "file": "client/src/components/layout/UserMenu.tsx",
+        "line": 22,
+        "exported": false
+      },
+      {
+        "name": "isOverdue",
+        "kind": "function",
+        "file": "client/src/features/production/components/JobsTable.tsx",
+        "line": 33,
+        "exported": false
+      },
+      {
+        "name": "MedalIcon",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/Podium.tsx",
+        "line": 55,
+        "exported": false
+      },
+      {
+        "name": "PodiumCard",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/Podium.tsx",
+        "line": 102,
+        "exported": false
+      },
+      {
+        "name": "TrophyIcon",
+        "kind": "function",
+        "file": "client/src/features/ranking/components/Podium.tsx",
+        "line": 45,
+        "exported": false
+      }
+    ],
+    "types": [
+      {
+        "name": "AddCommentFormData",
+        "kind": "type",
+        "file": "client/src/features/disputes/schemas.ts",
+        "line": 38,
+        "exported": true
+      },
+      {
+        "name": "BadgeVariant",
+        "kind": "type",
+        "file": "client/src/lib/constants.ts",
+        "line": 61,
+        "exported": true
+      },
+      {
+        "name": "BadgeVariant",
+        "kind": "type",
+        "file": "client/src/components/ui/Badge.tsx",
+        "line": 6,
+        "exported": true
+      },
+      {
+        "name": "CreateDisputeFormData",
+        "kind": "type",
+        "file": "client/src/features/disputes/schemas.ts",
+        "line": 24,
+        "exported": true
+      },
+      {
+        "name": "CreateServiceSchema",
+        "kind": "type",
+        "file": "client/src/features/services/schemas.ts",
+        "line": 27,
+        "exported": true
+      },
+      {
+        "name": "DisputeResolution",
+        "kind": "type",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "DisputeStatus",
+        "kind": "type",
+        "file": "client/src/features/disputes/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "LoginSchema",
+        "kind": "type",
+        "file": "client/src/features/auth/schemas.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "NotificationType",
+        "kind": "type",
+        "file": "client/src/features/notifications/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "OrderStatus",
+        "kind": "type",
+        "file": "client/src/features/student/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "OrderStatus",
+        "kind": "type",
+        "file": "client/src/features/orders/types.ts",
+        "line": 2,
+        "exported": true
+      },
+      {
+        "name": "OrderStatus",
+        "kind": "type",
+        "file": "client/src/features/collaborator/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "PaymentStatus",
+        "kind": "type",
+        "file": "client/src/features/student/types.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "PaymentStatus",
+        "kind": "type",
+        "file": "client/src/features/collaborator/types.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "ProductionJobStatus",
+        "kind": "type",
+        "file": "client/src/features/production/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "RankingCriteria",
+        "kind": "type",
+        "file": "client/src/features/ranking/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "RankingPeriod",
+        "kind": "type",
+        "file": "client/src/features/ranking/types.ts",
+        "line": 2,
+        "exported": true
+      },
+      {
+        "name": "RankingType",
+        "kind": "type",
+        "file": "client/src/features/admin/types.ts",
+        "line": 184,
+        "exported": true
+      },
+      {
+        "name": "RefreshRequestSchema",
+        "kind": "type",
+        "file": "client/src/features/auth/schemas.ts",
+        "line": 23,
+        "exported": true
+      },
+      {
+        "name": "ResolveDisputeFormData",
+        "kind": "type",
+        "file": "client/src/features/disputes/schemas.ts",
+        "line": 57,
+        "exported": true
+      },
+      {
+        "name": "ServiceArea",
+        "kind": "type",
+        "file": "client/src/features/services/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "SidebarState",
+        "kind": "type",
+        "file": "client/src/lib/hooks/useSidebarState.ts",
+        "line": 3,
+        "exported": true
+      },
+      {
+        "name": "TokenPairSchema",
+        "kind": "type",
+        "file": "client/src/features/auth/schemas.ts",
+        "line": 17,
+        "exported": true
+      },
+      {
+        "name": "UpdateDisputeStatusFormData",
+        "kind": "type",
+        "file": "client/src/features/disputes/schemas.ts",
+        "line": 106,
+        "exported": true
+      },
+      {
+        "name": "UploadEvidenceFormData",
+        "kind": "type",
+        "file": "client/src/features/disputes/schemas.ts",
+        "line": 92,
+        "exported": true
+      },
+      {
+        "name": "SortDirection",
+        "kind": "type",
+        "file": "client/src/features/production/components/JobsTable.tsx",
+        "line": 20,
+        "exported": false
+      },
+      {
+        "name": "SortField",
+        "kind": "type",
+        "file": "client/src/features/production/components/JobsTable.tsx",
+        "line": 19,
+        "exported": false
+      },
+      {
+        "name": "Step",
+        "kind": "type",
+        "file": "client/src/features/student/components/ApproveModal.tsx",
+        "line": 23,
+        "exported": false
+      },
+      {
+        "name": "Step",
+        "kind": "type",
+        "file": "client/src/features/production/components/ChangeStatusModal.tsx",
+        "line": 20,
+        "exported": false
+      },
+      {
+        "name": "ViewMode",
+        "kind": "type",
+        "file": "client/src/features/admin/components/FinancialChart.tsx",
+        "line": 5,
+        "exported": false
+      },
+      {
+        "name": "WithdrawalFormData",
+        "kind": "type",
+        "file": "client/src/features/collaborator/components/WithdrawalForm.tsx",
+        "line": 26,
+        "exported": false
+      }
+    ],
+    "enums": []
+  },
+  "publicAPI": [
+    {
+      "name": "ActiveJob",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 137,
+      "exported": true
+    },
+    {
+      "name": "ActiveJobsResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 150,
+      "exported": true
+    },
+    {
+      "name": "AddCommentFormData",
+      "kind": "type",
+      "file": "client/src/features/disputes/schemas.ts",
+      "line": 38,
+      "exported": true
+    },
+    {
+      "name": "AddCommentRequest",
+      "kind": "interface",
+      "file": "client/src/features/disputes/types.ts",
+      "line": 65,
+      "exported": true
+    },
+    {
+      "name": "AdminDashboard",
+      "kind": "function",
+      "file": "client/src/features/production/AdminDashboard.tsx",
+      "line": 39,
+      "exported": true
+    },
+    {
+      "name": "AlertItem",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 158,
+      "exported": true
+    },
+    {
+      "name": "AlertsResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 166,
+      "exported": true
+    },
+    {
+      "name": "AppProviders",
+      "kind": "function",
+      "file": "client/src/app/providers.tsx",
+      "line": 7,
+      "exported": true
+    },
+    {
+      "name": "AsaasSettingsResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 350,
+      "exported": true
+    },
+    {
+      "name": "AssignCollaboratorRequest",
+      "kind": "interface",
+      "file": "client/src/features/production/types.ts",
+      "line": 70,
+      "exported": true
+    },
+    {
+      "name": "AuthState",
+      "kind": "interface",
+      "file": "client/src/features/auth/types.ts",
+      "line": 20,
+      "exported": true
+    },
+    {
+      "name": "Badge",
+      "kind": "function",
+      "file": "client/src/components/ui/Badge.tsx",
+      "line": 33,
+      "exported": true
+    },
+    {
+      "name": "BadgeProps",
+      "kind": "interface",
+      "file": "client/src/components/ui/Badge.tsx",
+      "line": 14,
+      "exported": true
+    },
+    {
+      "name": "BadgeVariant",
+      "kind": "type",
+      "file": "client/src/lib/constants.ts",
+      "line": 61,
+      "exported": true
+    },
+    {
+      "name": "BadgeVariant",
+      "kind": "type",
+      "file": "client/src/components/ui/Badge.tsx",
+      "line": 6,
+      "exported": true
+    },
+    {
+      "name": "ChangeStatusModal",
+      "kind": "function",
+      "file": "client/src/features/orders/components/ChangeStatusModal.tsx",
+      "line": 14,
+      "exported": true
+    },
+    {
+      "name": "ChangeStatusRequest",
+      "kind": "interface",
+      "file": "client/src/features/orders/types.ts",
+      "line": 26,
+      "exported": true
+    },
+    {
+      "name": "ChangeStatusRequest",
+      "kind": "interface",
+      "file": "client/src/features/production/types.ts",
+      "line": 65,
+      "exported": true
+    },
+    {
+      "name": "cn",
+      "kind": "function",
+      "file": "client/src/lib/utils.ts",
+      "line": 4,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorDelinquent",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 322,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorDelinquentsResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 333,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorDetail",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 76,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorEarningPeriod",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 228,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorForSelection",
+      "kind": "interface",
+      "file": "client/src/features/student/types.ts",
+      "line": 82,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorInfo",
+      "kind": "interface",
+      "file": "client/src/features/student/types.ts",
+      "line": 58,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorJob",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 56,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorOrder",
+      "kind": "interface",
+      "file": "client/src/features/collaborator/types.ts",
+      "line": 16,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorRanking",
+      "kind": "interface",
+      "file": "client/src/features/production/types.ts",
+      "line": 35,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorRankingPositions",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 312,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorRevision",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 68,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorRevisionsResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 243,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorsListResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 235,
+      "exported": true
+    },
+    {
+      "name": "CollaboratorSummary",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 39,
+      "exported": true
+    },
+    {
+      "name": "ComplaintItem",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 88,
+      "exported": true
+    },
+    {
+      "name": "ComplaintsListResponse",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 279,
+      "exported": true
+    },
+    {
+      "name": "ComplaintStats",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 270,
+      "exported": true
+    },
+    {
+      "name": "ComplaintWithSplit",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 251,
+      "exported": true
+    },
+    {
+      "name": "CreateCollaboratorRequest",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 219,
+      "exported": true
+    },
+    {
+      "name": "CreateDisputeFormData",
+      "kind": "type",
+      "file": "client/src/features/disputes/schemas.ts",
+      "line": 24,
+      "exported": true
+    },
+    {
+      "name": "CreateDisputeRequest",
+      "kind": "interface",
+      "file": "client/src/features/disputes/types.ts",
+      "line": 59,
+      "exported": true
+    },
+    {
+      "name": "CreateJobRequest",
+      "kind": "interface",
+      "file": "client/src/features/production/types.ts",
+      "line": 56,
+      "exported": true
+    },
+    {
+      "name": "CreateOrderRequest",
+      "kind": "interface",
+      "file": "client/src/features/student/types.ts",
+      "line": 89,
+      "exported": true
+    },
+    {
+      "name": "CreateServiceInput",
+      "kind": "interface",
+      "file": "client/src/features/services/types.ts",
+      "line": 16,
+      "exported": true
+    },
+    {
+      "name": "CreateServiceSchema",
+      "kind": "type",
+      "file": "client/src/features/services/schemas.ts",
+      "line": 27,
+      "exported": true
+    },
+    {
+      "name": "CriteriaTabs",
+      "kind": "function",
+      "file": "client/src/features/ranking/components/CriteriaTabs.tsx",
+      "line": 21,
+      "exported": true
+    },
+    {
+      "name": "DashboardResponse",
+      "kind": "interface",
+      "file": "client/src/features/collaborator/types.ts",
+      "line": 31,
+      "exported": true
+    },
+    {
+      "name": "DecodedToken",
+      "kind": "interface",
+      "file": "client/src/features/auth/types.ts",
+      "line": 8,
+      "exported": true
+    },
+    {
+      "name": "DelinquencyAlert",
+      "kind": "function",
+      "file": "client/src/features/production/components/DelinquencyAlert.tsx",
+      "line": 8,
+      "exported": true
+    },
+    {
+      "name": "DelinquencyCheckResult",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 32,
+      "exported": true
+    },
+    {
+      "name": "DelinquencyConfig",
+      "kind": "interface",
+      "file": "client/src/features/admin/types.ts",
+      "line": 28,
+      "exported": true
+    }
+  ],
+  "dependencies": {
+    "mostImported": [
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/admin/types.ts",
+        "importedBy": 17
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/admin/api.ts",
+        "importedBy": 17
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/production/types.ts",
+        "importedBy": 9
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/ranking/types.ts",
+        "importedBy": 6
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/services/types.ts",
+        "importedBy": 5
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/student/api.ts",
+        "importedBy": 5
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/student/types.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/disputes/types.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/collaborator/types.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/auth/schemas.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/production/api.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/disputes/api.ts",
+        "importedBy": 4
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/orders/types.ts",
+        "importedBy": 3
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/auth/AuthContext.tsx",
+        "importedBy": 3
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/disputes/schemas.ts",
+        "importedBy": 3
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/collaborator/api.ts",
+        "importedBy": 3
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/services/api.ts",
+        "importedBy": 3
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/lib/axios.ts",
+        "importedBy": 2
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/student/components/StatusBadge.tsx",
+        "importedBy": 2
+      },
+      {
+        "file": "/Users/brunovilefort/Desktop/sistema-financeiro/client/src/features/production/components/FinancialWidget.tsx",
+        "importedBy": 2
+      }
+    ]
+  },
+  "stats": {
+    "totalSymbols": 225,
+    "exportedSymbols": 143,
+    "analysisTimeMs": 529
+  }
+}

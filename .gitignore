@@ -1,0 +1,46 @@
+# Binaries
+server/api
+server/financial-system
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go test binary
+*.test
+
+# Go coverage
+*.out
+coverage.html
+
+# Dependencies
+client/node_modules/
+client/dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Docker data
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads (user data)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs
+*.log
+
+# Lock files (keep package-lock.json in client/)

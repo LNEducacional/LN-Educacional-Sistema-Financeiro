@@ -1,0 +1,132 @@
+========================================
+ COMO CONFIGURAR O ASAAS NO SISTEMA
+========================================
+
+O ASAAS e o servico que processa os pagamentos (PIX e boleto) dos estudantes.
+Sem ele configurado, o sistema nao consegue cobrar.
+
+Sao 3 coisas para configurar: Conta, API Key e Webhook.
+
+
+----------------------------------------
+ PASSO 1 - CRIAR SUA CONTA NO ASAAS
+----------------------------------------
+
+Video mostrando como criar: https://www.youtube.com/watch?v=zw0R_sgBDnA
+
+1. Entre no site https://www.asaas.com
+2. Clique no botao "Criar conta gratis"
+3. Preencha com seus dados:
+   - Nome completo
+   - Email
+   - CPF ou CNPJ
+   - Telefone
+4. Vai chegar um email de confirmacao -- clique no link do email
+5. Depois de confirmar, o ASAAS vai pedir para completar o cadastro com endereco e dados bancarios
+6. Preencha tudo e aguarde a aprovacao (geralmente leva algumas horas, pode levar ate 1 dia util)
+
+Quando a conta for aprovada, voce recebe um email avisando.
+
+
+----------------------------------------
+ PASSO 2 - PEGAR A API KEY (CHAVE DE ACESSO)
+----------------------------------------
+
+Video mostrando como pegar: https://www.youtube.com/watch?v=tULtfD8vEfg
+
+A API Key e como uma "senha" que permite o sistema se comunicar com o ASAAS.
+
+1. Entre no ASAAS: https://www.asaas.com e faca login
+2. No menu do lado esquerdo, clique no icone de engrenagem (Configuracoes)
+3. Clique em "Integracoes"
+4. Procure a secao "API"
+5. Clique em "Gerar nova API Key"
+6. Vai aparecer uma chave grande que comeca com $aact_...
+7. COPIE ESSA CHAVE (selecione tudo e Ctrl+C)
+
+Agora cole no sistema:
+
+1. Abra o sistema e entre como administrador
+2. Va no menu "Configuracoes"
+3. No campo "API Key", clique em "Configurar" (ou "Alterar")
+4. Cole a chave que voce copiou (Ctrl+V)
+5. Clique em "Salvar"
+6. Certifique-se que o Ambiente esta em "Producao" (nao em Sandbox)
+
+
+----------------------------------------
+ PASSO 3 - CONFIGURAR O WEBHOOK (NOTIFICACOES DE PAGAMENTO)
+----------------------------------------
+
+O webhook e o que faz o ASAAS avisar o sistema quando alguem paga.
+Sem ele, o sistema nao sabe que o pagamento foi feito.
+
+3.1 - Configurar no ASAAS
+
+1. Entre no ASAAS: https://www.asaas.com e faca login
+2. Menu do lado esquerdo > engrenagem (Configuracoes) > Integracoes
+3. Procure a secao "Webhooks"
+4. Clique em "Adicionar" ou "Configurar"
+5. No campo URL, coloque o endereco do seu sistema seguido de /webhooks/asaas
+   Exemplo: https://meusite.com.br/webhooks/asaas
+   IMPORTANTE: precisa ser o endereco real do servidor onde o sistema esta hospedado
+6. Em Eventos, marque todos os de Cobranca:
+   - Cobranca confirmada
+   - Cobranca recebida
+   - Cobranca vencida
+   - Cobranca estornada
+7. Marque tambem os de Transferencia (todos)
+8. Clique em "Salvar"
+
+3.2 - Copiar o Token
+
+1. Depois de salvar, o ASAAS mostra um "Token de Autenticacao"
+2. COPIE ESSE TOKEN IMEDIATAMENTE -- ele so aparece uma vez
+3. Se voce perdeu, edite o webhook e procure o botao "Ver token"
+
+3.3 - Colar no sistema
+
+1. No sistema, va em "Configuracoes"
+2. No campo "Webhook Token", clique em "Configurar" (ou "Alterar")
+3. Cole o token que voce copiou
+4. Clique em "Salvar"
+
+
+----------------------------------------
+ PASSO 4 - TESTAR SE DEU TUDO CERTO
+----------------------------------------
+
+1. No sistema, va em "Configuracoes"
+2. Clique no botao verde "Testar"
+3. Se aparecer "Conexao com ASAAS verificada com sucesso" -- esta tudo certo!
+4. Se der erro, verifique:
+   - A API Key esta correta? (copie de novo do ASAAS)
+   - O ambiente esta em "Producao"?
+   - A conta no ASAAS ja foi aprovada?
+
+
+----------------------------------------
+ RESUMO
+----------------------------------------
+
+O que             Onde pegar                                      Onde colar no sistema
+-----------       -------------------------------------------     -------------------------
+API Key           ASAAS > Configuracoes > Integracoes > API       Configuracoes > API Key
+Webhook Token     ASAAS > Configuracoes > Integracoes > Webhooks  Configuracoes > Webhook Token
+Ambiente          -                                               Configuracoes > toggle Producao
+
+
+----------------------------------------
+ COMO SABER SE ESTA FUNCIONANDO?
+----------------------------------------
+
+Quando um estudante criar um pedido, ele vai ver um QR Code PIX ou link de boleto para pagar.
+Quando ele pagar:
+
+1. O ASAAS detecta o pagamento
+2. O ASAAS avisa o sistema pelo webhook
+3. O sistema atualiza o status da cobranca automaticamente
+4. O estudante ve o pagamento confirmado no painel dele
+
+Se o QR Code aparecer mas o banco diz "codigo indisponivel",
+verifique se o ambiente esta em "Producao" (e nao Sandbox).

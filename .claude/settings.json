@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Read(./client/node_modules/**)",
+      "Read(./client/package-lock.json)",
+      "Read(./client/dist/**)",
+      "Read(./server/api)",
+      "Read(./server/financial-system)",
+      "Read(./server/go.sum)",
+      "Read(./server/uploads/**)",
+      "Read(./.docker/postgres-data/**)",
+      "Read(./.git/**)",
+      "Read(./*.log)",
+      "Read(./**/*.log)",
+      "Read(./.vite/**)",
+      "Read(./.cache/**)",
+      "Read(./.idea/**)",
+      "Read(./.vscode/**)",
+      "Read(./*.swp)",
+      "Read(./*.swo)",
+      "Read(./.DS_Store)",
+      "Read(./**/.DS_Store)",
+      "Read(./tmp/**)",
+      "Read(./temp/**)",
+      "Read(./*.tmp)",
+      "Read(./*.temp)",
+      "Read(./coverage/**)",
+      "Read(./*.tsbuildinfo)"
+    ]
+  }
+}

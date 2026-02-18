@@ -1,0 +1,2 @@
+-- Add ENFERMAGEM to service_area enum
+ALTER TYPE service_area ADD VALUE IF NOT EXISTS 'ENFERMAGEM' BEFORE 'OUTROS';

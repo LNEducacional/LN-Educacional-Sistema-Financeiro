@@ -1,0 +1,25 @@
+name: Cleanup GHCR
+
+on:
+  schedule:
+    - cron: "0 3 * * 0" # Domingo as 3h UTC
+  workflow_dispatch:
+
+permissions:
+  packages: write
+
+jobs:
+  cleanup:
+    name: Remove old images
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: [sistema-financeiro-api, sistema-financeiro-client]
+    steps:
+      - name: Delete untagged images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: ${{ matrix.image }}
+          package-type: container
+          min-versions-to-keep: 10
+          delete-only-untagged-versions: true
