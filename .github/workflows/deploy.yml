@@ -18,7 +18,7 @@ permissions:
   packages: write
 
 concurrency:
-  group: deploy-${{ github.event.inputs.environment || 'test' }}
+  group: deploy-${{ github.event.inputs.environment || 'production' }}
   cancel-in-progress: false
 
 env:
@@ -38,7 +38,7 @@ jobs:
       - id: env
         run: |
           set -euo pipefail
-          ENV="${{ github.event.inputs.environment || 'test' }}"
+          ENV="${{ github.event.inputs.environment || 'production' }}"
           echo "environment=$ENV" >> "$GITHUB_OUTPUT"
 
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
